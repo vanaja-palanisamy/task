@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Task Table View</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/list.css') }}">
+</head>
+<body>
+  <div class="page-top">
+    <a href="{{ url_for('task_list') }}" class="back-btn">← Back to Saved Lists</a>
+  </div>
+
+  <div class="table-container">
+    <h2>Task List</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>Name</th>
+          <th>Task</th>
+          <th>Date</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for t in tasks %}
+        <tr>
+          <td>{{ loop.index }}</td>
+          <td>{{ t[0] }}</td>
+          <td>{{ t[1] }}</td>
+          <td>{{ t[2] }}</td>
+          <td>{{ t[3] }}</td>
+        </tr>
+        {% else %}
+        <tr><td colspan="5" align="center">No tasks found</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</body>bb
+</html>

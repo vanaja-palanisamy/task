@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Saved Files</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/list.css') }}">
+</head>
+<body>
+  <div class="page-top">
+    <a href="{{ url_for('index') }}" class="back-btn">← Add New Task</a>
+  </div>
+
+  <div class="table-container">
+    <h2>Saved Task Lists</h2>
+    <ul>
+      {% for s in saves %}
+      <li>
+        <a href="{{ url_for('open_saved', save_id=s[0]) }}">
+          {{ s[1] }} — {{ s[2] }}
+        </a>
+      </li>
+      {% else %}
+      <li>No saved task lists yet</li>
+      {% endfor %}
+    </ul>
+  </div>
+</body>
+</html>
